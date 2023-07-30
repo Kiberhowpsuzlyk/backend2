@@ -2,31 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $categoryProducts = [];
-        $categories = Category::where('home', 1)
-            ->get();
+        $brands = Brand::get();
+        $categories = Category::get();
 
-        foreach ($categories as $category) {
-            $categoryProducts[] = [
-                'category' => $category,
-                'products' => Product::where('category_id', $category->id)
-                    ->where('stock', '>', 0)
-                    ->with('user')
-                    ->inRandomOrder()
-                    ->take(6)
-                    ->get(),
-            ];
-        }
 
-        return view('home.index')
-            ->with([
-                'categoryProducts' => collect($categoryProducts),
-            ]);
+        return view('home.index');
     }
+
 }
