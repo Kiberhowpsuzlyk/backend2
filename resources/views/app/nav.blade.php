@@ -1,11 +1,35 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-black" aria-label="Navbar">
     <div class="container-xl">
-        <a class="navbar-brand" href="{{ route('home') }}"><i class="bi-film"></i> Ynamdar</a>
+        <a class="navbar-brand" href="{{ route('home') }}"><i class="bi-cart"></i> Ynamdar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav me-auto">
+                {{--<li class="nav-item dropdown">--}}
+                    {{--<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Brand</a>--}}
+                    {{--<ul class="dropdown-menu">--}}
+                        {{--@foreach($brands as $brand)--}}
+                            {{--<li>--}}
+                                {{--<a class="dropdown-item" href="{{route('brands.show', $brand->id)}}" class="small link-light stretched-link text-decoration-none">--}}
+                                    {{--{{ $brand->name }}--}}
+                                {{--</a>--}}
+                            {{--</li>--}}
+                        {{--@endforeach--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
+                {{--<li class="nav-item dropdown">--}}
+                    {{--<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Category</a>--}}
+                    {{--<ul class="dropdown-menu">--}}
+                        {{--@foreach($categories as $category)--}}
+                            {{--<li>--}}
+                                {{--<a class="dropdown-item" href="">--}}
+                                    {{--{{ $category->name }}--}}
+                                {{--</a>--}}
+                            {{--</li>--}}
+                        {{--@endforeach--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('contacts.create') }}">
                         Contact

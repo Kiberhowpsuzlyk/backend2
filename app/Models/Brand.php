@@ -11,10 +11,10 @@ class Brand extends Model
         'id',
     ];
 
-    public $timestamps = false;
-
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);
     }
+
+    public $timestamps = false;
 }

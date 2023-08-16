@@ -22,6 +22,8 @@ class BrandSeeder extends Seeder
             'Nivea',
             'NAN',
             'Belet film',
+            'Coca Cola',
+            'Alpen Gold',
         ];
 
         foreach ($brands as $brand) {

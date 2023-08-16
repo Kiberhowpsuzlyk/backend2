@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,8 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 require __DIR__.'/auth.php';
 
+Route::get('', [HomeController::class, 'index'])->name('home');
+
 Route::controller(ContactController::class)
-    ->prefix('/contacts')
+    ->middleware('auth')
+    ->prefix('contacts')
     ->name('contacts.')
     ->group(function () {
         Route::get('', 'index')->name('index');
@@ -25,10 +30,19 @@ Route::controller(ContactController::class)
         Route::post('', 'store')->name('store');
     });
 
-Route::controller(HomeController::class)
-    ->middleware('auth')
+Route::controller(ProductController::class)
+    ->prefix('products')
+    ->name('products.')
     ->group(function () {
-        Route::get('', 'index')->name('home');
+        Route::get('', 'index')->name('index');
+        Route::get('/{id}', 'show')->name('show')->where('id', '[0-9]+');
+    });
+
+Route::controller(BrandController::class)
+    ->prefix('brands')
+    ->name('brands.')
+    ->group(function () {
+        Route::get('/{id}', 'show')->name('show')->where('id', '[0-9]+');
     });
 
 
